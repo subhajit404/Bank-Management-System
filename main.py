@@ -96,7 +96,45 @@ class Bank:
                 print(f"{i} : {userdata[0][i]}")
 
     def Update_Details(self):
-        pass
+        acc_no = input("Please Tell us your account no : ")
+        pin = int(input("Enter your pin :"))
+        userdata = [i for i in Bank.data if i['accountNo.'] == acc_no and i['pin']==pin]
+        if userdata == False:
+            print("Sorry no data found")
+        else:
+            print("You can not change age , accountNo. , balance")
+
+            print("Fill the details for change or liv it emty if no change ")
+
+            newdata = {
+                'name': input("enter the name or liv it if you dont want to change name :-"),
+                'email': input("Enter new email or enter :-"),
+                'pin':int(input("Enter new pin or enter :-"))
+            }
+
+            if newdata['name'] =="":
+                newdata['name'] = userdata[0]['name']
+            if newdata['email'] =="":
+                newdata['email'] = userdata[0]['email']
+            if newdata['pin'] =="":
+                newdata['pin'] = userdata[0]['pin']
+
+            newdata['age'] = userdata[0]['age']
+            newdata['accountNo.'] = userdata[0]['accountNo.']
+            newdata['balance'] = userdata[0]['balance']
+
+            for i in newdata:
+                if newdata[i] == userdata[0][i]:
+                    continue
+                else:
+                    userdata[0][i]= newdata[i]
+            Bank.__update()
+            print("Update details successfully")
+
+            
+
+
+
     def Delete_Acc(self):
         pass
 
