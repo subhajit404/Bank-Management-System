@@ -129,15 +129,25 @@ class Bank:
                 else:
                     userdata[0][i]= newdata[i]
             Bank.__update()
-            print("Update details successfully")
-
-            
+            print("Update details successfully")     
 
 
 
     def Delete_Acc(self):
-        pass
-
+        acc_no = input("Please Tell us your account no : ")
+        pin = int(input("Enter your pin :"))
+        userdata = [i for i in Bank.data if i['accountNo.'] == acc_no and i['pin']==pin]
+        if userdata == False:
+            print("Sorry no data found")
+        else:
+            check = input("Press Y for delete account or Press N for not delete accont :-")
+            if check == 'N' or check =='n':
+                print("Bypass This ")
+            else:
+                index = Bank.data.index(userdata[0])
+                Bank.data.pop(index)
+                print("Account deleted successfully")
+                Bank.__update()
 user = Bank()
 
 print("Press 1 For create an account ")
