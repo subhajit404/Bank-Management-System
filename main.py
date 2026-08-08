@@ -18,11 +18,19 @@ class Bank:
     except Exception as err:
         print(err)
 
-    @staticmethod
-    def update():
-        with open(Bank.database,'w') as file:
+    @classmethod
+    def __update(cls):
+        with open(cls.database,'w') as file:
             file.write(json.dumps(Bank.data))
 
+    @classmethod
+    def __accountgenerate(cls):
+        alpha = random.choices(string.ascii_letters,k=3)
+        num = random.choices(string.digits,k=3)
+        spchar = random.choices("!@#$%^&*",k=1)
+        id = alpha+num+spchar
+        random.shuffle(id)
+        return "".join(id)
 
     def Create_Acc(self):
         info  = {
@@ -30,7 +38,7 @@ class Bank:
             "age" : int(input("Enter the age :-")),
             "email" : input("Enter the Email :-"),
             "pin" :input("Enter the 4 no pin :-"),
-            "accountno" : 1234,
+            "accountno" : Bank.__accountgenerate(),
             "balence" :0
         }
         if info['age'] < 18 or len(str(info['pin'])) != 4 :
@@ -39,10 +47,10 @@ class Bank:
             print("Your account create successfully")
             for i in info:
                 print(f"{i} : {info[i]}")
-            print(f"Please note your account no : {info['accountno']}")
+            print("Please note your account no ")
 
             Bank.data.append(info)
-            Bank.update()
+            Bank.__update()
 
     def Deposite_Money(self):
         pass
