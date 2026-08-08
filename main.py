@@ -69,9 +69,26 @@ class Bank:
                 
 
     def Withdraw_Money(self):
-        pass
-    def Show_Details(self):
-        pass
+        acc_no = input("Please Tell us your account no : ")
+        pin = int(input("Enter your pin :"))
+        userdata = [i for i in Bank.data if i['accountNo.'] == acc_no and i['pin']==pin]
+        if userdata == False:
+            print("Sorry no data found")
+        else:
+            amount = int(input("Enter the amount you want to Withdraw :-"))
+            if amount>userdata[0]['balance'] :
+                print("Insufficent balence")
+            else:
+                userdata[0]['balance'] -= amount
+                Bank.__update()
+                print("Amount Withdraw Successfully")
+
+
+    # def Show_Details(self):
+    #     acc_no = input("Please Tell us your account no : ")
+    #     pin = int(input("Enter your pin :"))
+    #     userdata = [i for i in Bank.data if i['accountNo.'] == acc_no and i['pin']==pin]
+
     def Update_Details(self):
         pass
     def Delete_Acc(self):
