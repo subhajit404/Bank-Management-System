@@ -25,7 +25,7 @@ print("Press 2 For Deposite money  ")
 print("Press 3 For Withdraw Money ")
 print("Press 4 For Want to show details  ")
 print("Press 5 For Want to update  details  ")
-print("Press 6 For Want to delete account  ")
+print("Press 6 For Want to delete account ")
 
 
 
