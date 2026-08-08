@@ -5,6 +5,20 @@ from pathlib import Path
 
 
 class Bank:
+
+    database = 'data.json'
+    data  =[]
+    try :
+        if Path(database).exists():
+            with open(database,'r') as file:
+                data =json.loads(file.read)
+        else:
+            print("No such file exist")
+            
+    except Exception as err:
+        print(err)
+
+
     def Create_Acc(self):
         pass
     def Deposite_Money(self):
