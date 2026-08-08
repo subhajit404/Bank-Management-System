@@ -14,13 +14,28 @@ class Bank:
                 data =json.loads(file.read)
         else:
             print("No such file exist")
-            
+
     except Exception as err:
         print(err)
 
 
     def Create_Acc(self):
-        pass
+        data  = {
+            "name" : input("Enter the name :-"),
+            "age" : int(input("Enter the age :-")),
+            "email" : input("Enter the Email :-"),
+            "pin" :input("Enter the 4 no pin"),
+            "accountno" : 1234,
+            "balence" :0
+        }
+        if data['age'] < 18 or len(str(data['pin'])) != 4 :
+            print("Sorry You can not create your account ")
+        else:
+            print("Your account create successfully")
+            for i in data:
+                print(f"{i} : {data[i]}")
+            print("Please note your account no :")
+
     def Deposite_Money(self):
         pass
     def Withdraw_Money(self):
