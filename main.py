@@ -11,7 +11,7 @@ class Bank:
     try :
         if Path(database).exists():
             with open(database,'r') as file:
-                data =json.loads(file.read)
+                data =json.loads(file.read())
         else:
             print("No such file exist")
 
@@ -38,8 +38,8 @@ class Bank:
             "age" : int(input("Enter the age :-")),
             "email" : input("Enter the Email :-"),
             "pin" :input("Enter the 4 no pin :-"),
-            "accountno" : Bank.__accountgenerate(),
-            "balence" :0
+            "accountNo." : Bank.__accountgenerate(),
+            "balance" :0
         }
         if info['age'] < 18 or len(str(info['pin'])) != 4 :
             print("Sorry You can not create your account ")
@@ -53,7 +53,21 @@ class Bank:
             Bank.__update()
 
     def Deposite_Money(self):
-        pass
+        acc_no = input("Please Tell us your account no : ")
+        pin = int(input("Enter your pin :"))
+        userdata = [i for i in Bank.data if i['accountNo.'] == acc_no and i['pin']==pin]
+        if userdata == False:
+            print("Sorry no data found")
+        else:
+            amount = int(input("Enter the amount you want to deposit :-"))
+            if amount >10000 or amount < 0 :
+                print("We accept amount only between 1 to 10000 ")
+            else:
+                userdata[0]['balance'] += amount
+                Bank.__update()
+                print("Amount Depositrd Successfully")
+                
+
     def Withdraw_Money(self):
         pass
     def Show_Details(self):
@@ -79,7 +93,7 @@ check = int(input("Enter Your response :-"))
 if check ==1:
     user.Create_Acc()
 if check == 2:
-    user.Delete_Acc()
+    user.Deposite_Money()
 if check == 3:
     user.Withdraw_Money()
 if check ==4:
