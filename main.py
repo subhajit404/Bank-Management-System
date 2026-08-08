@@ -18,23 +18,31 @@ class Bank:
     except Exception as err:
         print(err)
 
+    @staticmethod
+    def update():
+        with open(Bank.database,'w') as file:
+            file.write(json.dumps(Bank.data))
+
 
     def Create_Acc(self):
-        data  = {
+        info  = {
             "name" : input("Enter the name :-"),
             "age" : int(input("Enter the age :-")),
             "email" : input("Enter the Email :-"),
-            "pin" :input("Enter the 4 no pin"),
+            "pin" :input("Enter the 4 no pin :-"),
             "accountno" : 1234,
             "balence" :0
         }
-        if data['age'] < 18 or len(str(data['pin'])) != 4 :
+        if info['age'] < 18 or len(str(info['pin'])) != 4 :
             print("Sorry You can not create your account ")
         else:
             print("Your account create successfully")
-            for i in data:
-                print(f"{i} : {data[i]}")
-            print("Please note your account no :")
+            for i in info:
+                print(f"{i} : {info[i]}")
+            print(f"Please note your account no : {info['accountno']}")
+
+            Bank.data.append(info)
+            Bank.update()
 
     def Deposite_Money(self):
         pass
@@ -58,7 +66,7 @@ print("Press 6 For Want to delete account ")
 
 
 
-check = int(input("Enter Your response "))
+check = int(input("Enter Your response :-"))
 
 if check ==1:
     user.Create_Acc()
