@@ -84,10 +84,16 @@ class Bank:
                 print("Amount Withdraw Successfully")
 
 
-    # def Show_Details(self):
-    #     acc_no = input("Please Tell us your account no : ")
-    #     pin = int(input("Enter your pin :"))
-    #     userdata = [i for i in Bank.data if i['accountNo.'] == acc_no and i['pin']==pin]
+    def Show_Details(self):
+        acc_no = input("Please Tell us your account no : ")
+        pin = int(input("Enter your pin :"))
+        userdata = [i for i in Bank.data if i['accountNo.'] == acc_no and i['pin']==pin]
+        if userdata == False:
+            print("Sorry no data found")
+        else:
+            print("Your information are :-")
+            for i in userdata[0]:
+                print(f"{i} : {userdata[0][i]}")
 
     def Update_Details(self):
         pass
