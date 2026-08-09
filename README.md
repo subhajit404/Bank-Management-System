@@ -163,7 +163,7 @@ Bank-Management-System/
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/Bank-Management-System.git
+git clone https://github.com/subhajit404/Bank-Management-System.git
 ```
 
 Move into the project directory:
