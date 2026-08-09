@@ -6,5 +6,13 @@
         "pin": "1452",
         "accountNo": "IYE565$",
         "balance": 9500
+    },
+    {
+        "name": "Akarsh Sharma",
+        "age": 20,
+        "email": "akarsh@gmail.com",
+        "pin": "1236",
+        "accountNo": "SCI070#",
+        "balance": 5500
     }
 ]
